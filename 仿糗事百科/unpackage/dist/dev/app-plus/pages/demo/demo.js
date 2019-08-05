@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"view-demo { width: ",[0,200],"; height: ",[0,200],"; background-color: #007AFF; color: #FFFFFF; }\n.",[1],"view-demo-hover { background-color: #FF3333; }\n",],undefined,{path:"./pages/demo/demo.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/demo/demo.wxml') } }));
