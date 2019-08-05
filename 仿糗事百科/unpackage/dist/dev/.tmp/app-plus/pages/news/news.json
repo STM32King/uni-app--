@@ -1,6 +1,6 @@
 {
+  "titleNView": false,
   "usingComponents": {
-    "index-list": "/components/index/index-list",
-    "swiper-tab-head": "/components/index/swiper-tab-head"
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar"
   }
 }

@@ -1,255 +1,97 @@
 <template>
 	<view>
-      
-	<swiper-tab-head 
-	:tabBars="tabBars" 
-	:tabIndex="tabIndex"
-	@tabtap="tabtap">
-	</swiper-tab-head>
-	
-	<view class="uni-tab-bar">
-	<swiper class="swiper-box" 
-	:style="{height:swiperheight+'px'}" 
-	:current="tabIndex"
-	@change="tabChange">
-		<swiper-item v-for="(items,index) in newslist" :key="index"> 
-			<scroll-view scroll-y class="list">
-				<block v-for="(item,index1) in items.list" :key="index1">
-					<index-list :item="item" :index="index1"></index-list>
+		<!-- 自定义导航栏 -->
+		<uni-nav-bar :statusBar="true" @click-right="openAdd">
+			<!-- 左边 -->
+			<block slot="left">
+				<view class="nav-left">
+					<view class="icon iconfont icon-qiandao"></view>
+				</view>
+			</block>
+			<!-- 中间 -->
+			<view class="nav-tab-bar u-f-ajc">
+				<block v-for="(tab,index) in tabBars" :key="tab.id">
+					<view class="u-f-ajc" 
+					:class="{'active':tabIndex==index}" 
+					@tap="changeTab(index)">
+						{{tab.name}}
+						<view v-if="(tabIndex==index)" class="nav-tab-bar-line"></view>
+					</view>
 				</block>
-			</scroll-view>
-		</swiper-item>
-	</swiper>   
-	</view>
-	   
+			</view>
+			<!-- 右边 -->
+			<block slot="right">
+				<view class="nav-right u-f-ajc">
+					<view class="icon iconfont icon-bianji1"></view>
+				</view>
+			</block>
+		</uni-nav-bar>
+		
 	</view>
 </template>
 
-
 <script>
-	import indexList from "../../components/index/index-list.vue";
-	import swiperTabHead from "../../components/index/swiper-tab-head.vue";
+	import uniNavBar from "../../components/uni-nav-bar/uni-nav-bar.vue";
 	export default {
 		components:{
-			indexList,
-			swiperTabHead
+			uniNavBar
 		},
 		data() {
 			return {
-				swiperheight:500,
 				tabIndex:0,
 				tabBars:[
-					{ name:"关注",id:"guanzhu" },
-					{ name:"推荐",id:"tuijian" },
-					{ name:"体育",id:"tiyu" 	  },
-					{ name:"热点",id:"redian"  },
-					{ name:"财经",id:"caijing" },
-					{ name:"娱乐",id:"yule"    },
-				],	
-				newslist:[
-					{
-						list:[
-							{
-								userpic:"../../static/demo/userpic/12.jpg", // 头像
-								username:"昵称", // 昵称
-								isguanzhu:false, // 是否关注
-								title:"我是标题", // 标题
-								type:"img", // img:图文,video:视频
-								titlepic:"../../static/demo/datapic/11.jpg", // 封面图
-								infonum:{
-									index:0,//0:没有操作，1:顶,2:踩；
-									dingnum:11, // 笑脸数量
-									cainum:11, // 哭脸数量
-								},
-								commentnum:10, // 评论数量
-								sharenum:10, // 转发数量
-							},
-							{
-								userpic:"../../static/demo/userpic/12.jpg", // 头像
-								username:"昵称", // 昵称
-								isguanzhu:false, // 是否关注
-								title:"我是标题", // 标题
-								type:"img", // img:图文,video:视频
-								titlepic:"../../static/demo/datapic/11.jpg", // 封面图
-								infonum:{
-									index:0,//0:没有操作，1:顶,2:踩；
-									dingnum:11, // 笑脸数量
-									cainum:11, // 哭脸数量
-								},
-								commentnum:10, // 评论数量
-								sharenum:10, // 转发数量
-							}
-						]
-					},
-					{
-						list:[
-							{
-								userpic:"../../static/demo/userpic/12.jpg", // 头像
-								username:"昵称", // 昵称
-								isguanzhu:false, // 是否关注
-								title:"我是标题", // 标题
-								type:"img", // img:图文,video:视频
-								titlepic:"../../static/demo/datapic/11.jpg", // 封面图
-								infonum:{
-									index:1,//0:没有操作，1:顶,2:踩；
-									dingnum:11, // 笑脸数量
-									cainum:11, // 哭脸数量
-								},
-								commentnum:10, // 评论数量
-								sharenum:10, // 转发数量
-							},
-							{
-								userpic:"../../static/demo/userpic/12.jpg", // 头像
-								username:"昵称", // 昵称
-								isguanzhu:false, // 是否关注
-								title:"我是标题", // 标题
-								type:"img", // img:图文,video:视频
-								titlepic:"../../static/demo/datapic/11.jpg", // 封面图
-								infonum:{
-									index:2,//0:没有操作，1:顶,2:踩；
-									dingnum:11, // 笑脸数量
-									cainum:11, // 哭脸数量
-								},
-								commentnum:10, // 评论数量
-								sharenum:10, // 转发数量
-							},
-							{
-								userpic:"../../static/demo/userpic/12.jpg",
-								username:"昵称",
-								isguanzhu:false,
-								title:"我是标题",
-								type:"img", // img:图文,video:视频
-								titlepic:"../../static/demo/datapic/11.jpg",
-								infonum:{
-									index:0,//0:没有操作，1:顶,2:踩；
-									dingnum:11,
-									cainum:11,
-								},
-								commentnum:10,
-								sharenum:10,
-							},
-							{
-								userpic:"../../static/demo/userpic/12.jpg",
-								username:"昵称",
-								isguanzhu:true,
-								title:"我是标题",
-								type:"video", // img:图文,video:视频
-								titlepic:"../../static/demo/datapic/11.jpg",
-								playnum:"20w",
-								long:"2:47",
-								infonum:{
-									index:1,//0:没有操作，1:顶,2:踩；
-									dingnum:11,
-									cainum:11,
-								},
-								commentnum:10,
-								sharenum:10,
-							}
-						]
-					},
-					{
-						list:[
-							{
-								userpic:"../../static/demo/userpic/12.jpg",
-								username:"昵称",
-								isguanzhu:false,
-								title:"我是标题",
-								type:"img", // img:图文,video:视频
-								titlepic:"../../static/demo/datapic/11.jpg",
-								infonum:{
-									index:0,//0:没有操作，1:顶,2:踩；
-									dingnum:11,
-									cainum:11,
-								},
-								commentnum:10,
-								sharenum:10,
-							},
-							{
-								userpic:"../../static/demo/userpic/12.jpg",
-								username:"昵称",
-								isguanzhu:true,
-								title:"我是标题",
-								type:"video", // img:图文,video:视频
-								titlepic:"../../static/demo/datapic/11.jpg",
-								playnum:"20w",
-								long:"2:47",
-								infonum:{
-									index:1,//0:没有操作，1:顶,2:踩；
-									dingnum:11,
-									cainum:11,
-								},
-								commentnum:10,
-								sharenum:10,
-							},
-							{
-								userpic:"../../static/demo/userpic/12.jpg",
-								username:"昵称",
-								isguanzhu:false,
-								title:"我是标题",
-								type:"img", // img:图文,video:视频
-								titlepic:"../../static/demo/datapic/11.jpg",
-								infonum:{
-									index:0,//0:没有操作，1:顶,2:踩；
-									dingnum:11,
-									cainum:11,
-								},
-								commentnum:10,
-								sharenum:10,
-							},
-							{
-								userpic:"../../static/demo/userpic/12.jpg",
-								username:"昵称",
-								isguanzhu:true,
-								title:"我是标题",
-								type:"video", // img:图文,video:视频
-								titlepic:"../../static/demo/datapic/11.jpg",
-								playnum:"20w",
-								long:"2:47",
-								infonum:{
-									index:1,//0:没有操作，1:顶,2:踩；
-									dingnum:11,
-									cainum:11,
-								},
-								commentnum:10,
-								sharenum:10,
-							}
-						]
-					},
-					{
-						list:[]
-					},
-					{
-						list:[]
-					},
-					{
-						list:[]
-					}
-				],
-				
-				
-			}
+					{name:"关注",id:"guanzhu"},
+					{name:"话题",id:"topic"}
+				]
+			};
 		},
-		onLoad() {
-			uni.getSystemInfo({
-				success: (res)=> {
-					let height=res.windowHeight-uni.upx2px(100)
-					this.swiperheight=height;
-				}
-			});
-		},
-		methods: {
-			// tabbar点击事件
-			tabtap(index){
+		methods:{
+			changeTab(index){
 				this.tabIndex=index;
 			},
-			// 滑动事件
-			tabChange(e){
-				this.tabIndex=e.detail.current;
+			openAdd(){
+				// 打开发布页面
+				uni.navigateTo({
+					url: '../add-input/add-input',
+				});
 			}
-		},
+		}
 	}
 </script>
 
 <style>
-	
+.nav-left>view,.nav-right>view{
+	font-size: 40upx;
+}
+.nav-left>view{
+	color: #FF9619;
+}
+.nav-left{
+	margin-left: 16upx;
+}
+.nav-right{
+	width: 100%;
+}
+.nav-tab-bar{
+	width: 100%;
+	margin-left: -20upx;
+	position: relative;
+}
+.nav-tab-bar>view{
+	font-size: 32upx;
+	padding: 0 15upx;
+	font-weight: bold;
+	color: #969696;
+}
+.active{
+	color: #333333!important;
+}
+.nav-tab-bar-line{
+	border-bottom: 5upx solid #FEDE33;
+	border-top: 5upx solid #FEDE33;
+	width: 70upx;
+	border-radius: 20upx;
+	position: absolute;
+	bottom: 12upx;
+}
 </style>
