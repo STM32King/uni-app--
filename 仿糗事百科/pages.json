@@ -104,6 +104,23 @@
 					"bounce": "none"
 				}
 			}
+		},
+		{
+			"path": "pages/topic-detail/topic-detail",
+			"style": {
+				"enablePullDownRefresh": true, // 下拉刷新
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": {
+						"type": "transparent", // 渐变
+						"buttons": [
+							{
+								"type": "menu"
+							}
+						]
+					}
+				}
+			}
 		}
 	],
 	"globalStyle": {
