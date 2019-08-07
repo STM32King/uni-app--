@@ -44,7 +44,8 @@
 			"path": "pages/news/news",
 			"style": {
 				"app-plus": {
-					"titleNView" : false
+					"titleNView": false,
+					"bounce": "none" //关闭反弹效果
 				}
 			}
 		}, {
@@ -87,16 +88,24 @@
 					}
 				}
 			}
-		}
-	    ,{
-            "path" : "pages/add-input/add-input",
-            "style" : {
+		}, {
+			"path": "pages/add-input/add-input",
+			"style": {
 				"app-plus": {
-					"titleNView" : false
+					"titleNView": false
 				}
 			}
-        }
-    ],
+		},
+		{
+			"path": "pages/topic-nav/topic-nav",
+			"style": {
+				"navigationBarTitleText": "话题分类",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "仿糗事百科",
