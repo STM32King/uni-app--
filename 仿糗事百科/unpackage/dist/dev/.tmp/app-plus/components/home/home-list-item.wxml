@@ -1,0 +1,1 @@
+<view class="home-list-item u-f-ac u-f-jsb data-v-0db57610" hover-class="home-list-hover"><view class="u-f-ac data-v-0db57610"><view class="{{['icon iconfont data-v-0db57610','icon-'+item.icon]}}"></view>{{''+item.name+''}}</view><view class="icon iconfont icon-jinru data-v-0db57610"></view></view>
