@@ -57,15 +57,17 @@
 					{ name:"收藏", num:0 },
 				],
 				list:[
-					{ icon:"liulan",name:"浏览历史" },
-					{ icon:"huiyuanvip",name:"糗百认证" },
-					{ icon:"keyboard",name:"审核糗事" },
+					{ icon:"liulan",name:"浏览历史",clicktype:"",url:""},
+					{ icon:"huiyuanvip",name:"糗百认证",clicktype:"",url:"" },
+					{ icon:"keyboard",name:"审核糗事",clicktype:"",url:"" },
 				]
 			};
 		},
 		onNavigationBarButtonTap(e) {
 			if(e.index==0){
-				console.log("跳转设置页")
+				uni.navigateTo({
+					url: '../user-set/user-set',
+				});
 			}
 		}
 	}

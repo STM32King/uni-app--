@@ -11,7 +11,12 @@
     "pages/topic-detail/topic-detail",
     "pages/user-list/user-list",
     "pages/user-chat/user-chat",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/user-set/user-set",
+    "pages/user-set-repassword/user-set-repassword",
+    "pages/user-set-email/user-set-email",
+    "pages/user-set-userinfo/user-set-userinfo",
+    "pages/user-set-help/user-set-help"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -52,11 +57,12 @@
     ]
   },
   "nvueCompiler": "weex",
+  "renderer": "auto",
   "splashscreen": {
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
   "appname": "仿糗事百科",
-  "compilerVersion": "2.1.3",
+  "compilerVersion": "2.2.1",
   "usingComponents": {}
 }
