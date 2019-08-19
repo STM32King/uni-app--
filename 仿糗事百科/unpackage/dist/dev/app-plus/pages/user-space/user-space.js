@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"user-space-margin{ margin: ",[0,15]," 0; }\n",],undefined,{path:"./pages/user-space/user-space.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/user-space/user-space.wxml') } }));
