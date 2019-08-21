@@ -13,7 +13,10 @@
 
 
 
-/*引入官方css*/
+
+
+/*每个页面公共css */
+/* 引入官方css库 */
 @font-face {
 	font-family: uniicons;
 	font-weight: normal;
@@ -1625,7 +1628,7 @@ radio-group label, checkbox-group label{
         -ms-transform: translateY(50%);
             transform: translateY(50%);
 }
-/*引入自定义图标库*/
+/* 引入自定义图标库 */
 @font-face {font-family: "iconfont";
 	
 	
@@ -1810,7 +1813,7 @@ radio-group label, checkbox-group label{
 .icon-icon_im_keyboard:before {
   content: "\EB97";
 }
-/*引入动画库*/
+/* 引入动画库 */
 @charset "UTF-8";
 /*!
  * animate.css -https://daneden.github.io/animate.css/
@@ -4922,5 +4925,4 @@ to {
 	    -ms-flex-direction: column;
 	        flex-direction: column;
 }
-
 
